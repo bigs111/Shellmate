@@ -1,28 +1,28 @@
-# Shellmate
-This script is used to manage ssh connections thought the terminal.
 
-**Prerequisites** 
-Bash needs to be installed
+Shellmate
+This script is used to manage SSH connections through the terminal.
 
-**Features**
-* Save Server Connections
-* Add servers 
-* Delete Servers
-* Connect
-* Edit Servers
-* Search for servers
+Prerequisites
+Bash needs to be installed.
 
-**Acknowledgments**
+Features
+
+Save Server Connections
+Add servers
+Delete Servers
+Connect
+Edit Servers
+Search for servers
+Acknowledgments
 
 The script was created using Bash and various Bash tools.
 
-**How to install**
+How to install
 
-1. Copy the code from the file "shellmate1.0.sh"
-2. Create a file called "shellmate1.0.sh" and copy the code into that file. 
-3. In that same directory type "chmod +x ( name of file ). 
-4. Now you want to copy that file to do this type "cp (file name) /usr/local/bin/(file name)
-5. Next type in "nano ~/.bashrc" now scroll all the way to the bottom and type this : alias shellmate="/usr/local/bin/(name of file)" this allows you to create a alias for this script basically it allows you to type "shellmate" into the console to excute the script instead of typing "shellmate1.0.sh" just makes it a little easier. 
-6. Now type "source ~/.bashrc" into the terminal. 
-  
-  Your done, congrats. It hopfully it works. 
+Copy the code from the file "shellmate1.0.sh".
+Create a file called "shellmate1.0.sh" and paste the code into that file.
+In the same directory, type "chmod +x (name of file)".
+Now, you want to copy that file. To do this, type "cp (file name) /usr/local/bin/(file name)".
+Next, type "nano ~/.bashrc" and scroll all the way to the bottom. Type the following: alias shellmate="/usr/local/bin/(name of file)". This allows you to create an alias for this script, making it easier to execute by typing "shellmate" into the console instead of "shellmate1.0.sh".
+Finally, type "source ~/.bashrc" into the terminal.
+You're done! Congratulations! Hopefully, it works as expected.
