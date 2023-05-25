@@ -7,13 +7,13 @@ Bash needs to be installed.
 
 **Features**
 
-Save Server Connections
-Add servers
-Delete Servers
-Connect
-Edit Servers
-Search for servers
-Acknowledgments
+*Save Server Connections
+*Add servers
+*Delete Servers
+*Connect
+*Edit Servers
+*Search for servers
+*Acknowledgments
 
 The script was created using Bash and various Bash tools.
 
