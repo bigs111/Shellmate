@@ -28,4 +28,4 @@ The script was created using Bash and various Bash tools.
 5. Next, type "nano ~/.bashrc" and scroll all the way to the bottom. Type the following: alias shellmate="/usr/local/bin/(name of file)". This allows you to create an alias for this script, making it easier to execute by typing "shellmate" into the console instead of "shellmate1.0.sh".
 6. Finally, type "source ~/.bashrc" into the terminal.
 
-You're done! Congratulations! Hopefully, it works as expected.
+You're done! Hopefully, it works as expected.
