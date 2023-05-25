@@ -24,7 +24,7 @@ function show_menu() {
     echo "7. Search Server"
     echo "8. Exit"
     echo -e "--------------------------------\e[0m"
-    read -p "Enter your choice: " choice
+    read -p "Select your choice: " choice
     handle_choice "$choice"
 }
 
