@@ -15,7 +15,8 @@ Bash needs to be installed.
 * Connect
 * Edit Servers
 * Search for servers
-* Acknowledgments
+
+**Acknowledgments**
 
 The script was created using Bash and various Bash tools.
 
