@@ -71,13 +71,14 @@ function list_servers() {
         
         # Iterate over each server and ping it
         for server_info in "${servers[@]}"; do
-            username=$(cut -d '@' -f1 <<< "$server_info")
-            server_ip=$(cut -d '@' -f2 <<< "$server_info")
+            server_name=$(cut -d '|' -f1 <<< "$server_info")
+            username=$(cut -d '|' -f2 <<< "$server_info")
+            server_ip=$(cut -d '|' -f3 <<< "$server_info")
             
             if ping -c 1 "$server_ip" &> /dev/null; then
-                echo -e "$server_info \e[1m\e[32m[UP]\e[0m"
+                echo -e "$server_name: $username@$server_ip \e[1m\e[32m[UP]\e[0m"
             else
-                echo -e "$server_info \e[1m\e[31m[DOWN]\e[0m"
+                echo -e "$server_name: $username@$server_ip \e[1m\e[31m[DOWN]\e[0m"
             fi
         done
     else
@@ -95,9 +96,10 @@ function add_server() {
     echo -e "\e[1m\e[34m===================="
     echo -e "    Add a Server"
     echo -e "====================\e[0m"
+    read -p "Enter the server name: " server_name
     read -p "Enter the server IP: " server_ip
     read -p "Enter the username: " username
-    echo "$username@$server_ip" >> "$SERVERS_FILE"
+    echo "$server_name|$username|$server_ip" >> "$SERVERS_FILE"
     echo -e "\e[1m\e[32mServer added successfully!\e[0m"
     sleep 2
     show_menu
@@ -131,9 +133,10 @@ function connect_to_server() {
         echo -e "\e[1m\e[34m====================\e[0m"
         read -p "Enter the line number of the server to connect: " line_num
         server_info=$(sed -n "${line_num}p" "$SERVERS_FILE")
-        username=$(cut -d '@' -f1 <<< "$server_info")
-        server_ip=$(cut -d '@' -f2 <<< "$server_info")
-        echo "Connecting to $username@$server_ip..."
+        server_name=$(cut -d '|' -f1 <<< "$server_info")
+        username=$(cut -d '|' -f2 <<< "$server_info")
+        server_ip=$(cut -d '|' -f3 <<< "$server_info")
+        echo "Connecting to $server_name..."
         ssh "$username@$server_ip"
     else
         echo "No servers added yet."
@@ -153,11 +156,13 @@ function edit_server_details() {
         echo -e "\e[1m\e[34m====================\e[0m"
         read -p "Enter the line number of the server to edit: " line_num
         server_info=$(sed -n "${line_num}p" "$SERVERS_FILE")
-        username=$(cut -d '@' -f1 <<< "$server_info")
-        server_ip=$(cut -d '@' -f2 <<< "$server_info")
+        server_name=$(cut -d '|' -f1 <<< "$server_info")
+        username=$(cut -d '|' -f2 <<< "$server_info")
+        server_ip=$(cut -d '|' -f3 <<< "$server_info")
+        read -p "Enter the new server name: " new_name
         read -p "Enter the new server IP: " new_ip
         read -p "Enter the new username: " new_username
-        sed -i "${line_num}s@$server_info@$new_username@$new_ip@" "$SERVERS_FILE"
+        sed -i "${line_num}s@$server_info@$new_name|$new_username|$new_ip@" "$SERVERS_FILE"
         echo -e "\e[1m\e[32mServer details updated successfully!\e[0m"
     else
         echo "No servers added yet."
@@ -184,3 +189,4 @@ function search_server() {
 
 # Main program
 show_menu
+
