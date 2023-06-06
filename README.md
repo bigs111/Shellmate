@@ -4,8 +4,7 @@
 This script is used to manage SSH connections through the terminal.
 
 **Prerequisites**
-
-Bash needs to be installed.
+n/a
 
 **Features**
 
