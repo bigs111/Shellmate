@@ -1,6 +1,6 @@
 #!/bin/bash
 
-SERVERS_FILE="servers.txt"
+SERVERS_FILE=".shellmate"
 
 function show_header() {
     echo -e "\e[1;31m"
